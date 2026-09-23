@@ -5,7 +5,7 @@ function esc(v){return String(v??"").replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&l
 function safeUrl(url){try{const u=new URL(url,location.href);return["https:","http:"].includes(u.protocol)?u.href:"#"}catch{return"#"}}
 function panelFor(d){lastFocused=document.activeElement;
 if(d.data.id==="terminal"&&window.CyberLabTerminal){window.CyberLabTerminal.open();return}
-if(d.data.id==="quizzes"&&window.CyberGame){window.CyberGame.open();return}
+if(d.data.id==="quizzes"&&window.CyberGame){window.CyberGame.open();return}if(d.data.id==="arcade"&&window.CyberArcade){window.CyberArcade.open();return}
 panelTitle.textContent=d.data.name;panelType.textContent=(d.data.type==="branch"||d.data.type==="root")?"SYSTEM NODE":"LEAF NODE";
 let html='<div class="panel-content">';
 if(d.data.description)html+=`<p>${esc(d.data.description)}</p>`;
@@ -32,7 +32,7 @@ function handleNode(e,d){e.stopPropagation();if(d.children||d._children){if(d.ch
 function fit(){const scene=svg.select("g.scene");if(scene.empty())return;const box=scene.node().getBBox(),w=viewport.clientWidth,h=viewport.clientHeight;if(!box.width||!box.height)return;const scale=Math.min(w/(box.width+100),h/(box.height+100),1.05),tx=w/2-(box.x+box.width/2)*scale,ty=h/2-(box.y+box.height/2)*scale;svg.transition().duration(350).call(zoom.transform,d3.zoomIdentity.translate(tx,ty).scale(scale))}
 function init(){root=d3.hierarchy(data);zoom=d3.zoom().scaleExtent([.18,2.8]).filter(e=>!e.button||e.type==="wheel").on("zoom",e=>svg.select("g.scene").attr("transform",e.transform));svg.call(zoom).on("dblclick.zoom",null);update();requestAnimationFrame(fit);
 document.getElementById("fitBtn").onclick=fit;document.getElementById("homeBtn").onclick=reset;document.getElementById("expandBtn").onclick=expandAll;document.getElementById("collapseBtn").onclick=collapseAll;document.getElementById("resetBtn").onclick=reset;document.getElementById("closePanel").onclick=closePanel;panel.querySelector("[data-close-panel]").onclick=closePanel;document.getElementById("legendBtn").onclick=()=>{const l=document.getElementById("legend");l.hidden=!l.hidden};
-document.getElementById("terminalBtn").onclick=()=>window.CyberLabTerminal?.open();document.getElementById("gameBtn").onclick=()=>window.CyberGame?.open();
+document.getElementById("terminalBtn").onclick=()=>window.CyberLabTerminal?.open();document.getElementById("gameBtn").onclick=()=>window.CyberGame?.open();document.getElementById("arcadeBtn").onclick=()=>window.CyberArcade?.open();
 const search=document.getElementById("treeSearch");search.addEventListener("input",e=>{searchTerm=e.target.value.trim().toLowerCase();update();if(searchTerm){const n=root.descendants().filter(matches).length;status.textContent=`${n} matching node${n===1?"":"s"} found.`}else status.textContent="Search cleared."});
 document.addEventListener("keydown",e=>{if(e.key==="Escape")closePanel();if(e.key==="/"&&document.activeElement!==search){e.preventDefault();search.focus()}});
 window.addEventListener("resize",()=>{update();fit()})}
