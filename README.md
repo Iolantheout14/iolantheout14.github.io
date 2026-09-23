@@ -81,3 +81,9 @@ No package manager or build step is required. The project is designed for static
 ## Content accuracy
 
 Descriptions are intended to reflect the supplied portfolio information. Do not add live statistics, certifications, compliance claims or security-testing results unless they can be verified.
+## Cyber Lab upgrades
+- Cyber Defender Quiz now contains a 1,000-question browser-generated question engine.
+- Cyber Arcade adds four different practice modes: SOC Triage, Packet Sort, Cipher Lab and Incident Timeline.
+- The 50+ browser tools now expose an official documentation/project link beside every tool.
+- Tool execution remains simulated in GitHub Pages; real security testing belongs in an authorized local lab such as Kali/WSL2.
+- Interactive hover states, tool filtering, documentation links and arcade controls are included.
